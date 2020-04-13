@@ -18,6 +18,7 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.cm as cm
 from astropy.io.votable import parse_single_table
 #import warnings   # ------ librería que esconde los warnings
 #warnings.filterwarnings("ignore")
@@ -110,8 +111,12 @@ for i in range(len(G)):
 plt.plot(b_v-E,Mv,'.')     # Ojo, se hace (B-V)-E, índice de color intrínseco
 plt.gca().invert_yaxis()
 plt.grid()
+plt.title('COLOR-MAGNITUDE DIAGRAM - ALFA PERSEI')
 plt.xlabel('Color Index (B-V)',fontsize=12)
 plt.ylabel('Absolute Magnitude',fontsize=12)
+plt.scatter(b_v-E, Mv, c=temp, cmap='Spectral')
+cbar = plt.colorbar()
+cbar.set_label('Effective Temperature')
 plt.show()
 
 
