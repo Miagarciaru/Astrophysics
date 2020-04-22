@@ -103,6 +103,7 @@ for i in range(len(G)):
         Mv[i]  = np.nan
         print(i)
 
+plt.figure(figsize=(6, 10))
 plt.ylim(-5, 15)
 plt.gca().invert_yaxis()
 plt.grid()
