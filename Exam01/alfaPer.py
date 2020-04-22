@@ -103,9 +103,7 @@ for i in range(len(G)):
         Mv[i]  = np.nan
         print(i)
 
-
-
-plt.plot(b_v-E,Mv,'.')     # Ojo, se hace (B-V)-E, índice de color intrínseco
+plt.ylim(-5, 15)
 plt.gca().invert_yaxis()
 plt.grid()
 plt.title('COLOR-MAGNITUDE DIAGRAM ' r'$\alpha$PERSEI')
