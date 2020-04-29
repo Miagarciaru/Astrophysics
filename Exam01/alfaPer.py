@@ -102,9 +102,8 @@ for i in range(len(G)):
         v[i]   = np.nan
         Mv[i]  = np.nan
         print(i)
-
+        
 plt.figure(figsize=(6, 10))
-plt.ylim(-5, 15)
 plt.gca().invert_yaxis()
 plt.grid()
 plt.title('COLOR-MAGNITUDE DIAGRAM ' r'$\alpha$PERSEI')
