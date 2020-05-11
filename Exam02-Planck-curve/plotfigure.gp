@@ -7,9 +7,9 @@ set key width 1
 set border 3
 set tics nomirror
 set border lw 2
-h=6.6261*(1e-27) #Constante de Planck en unidades cgs
-K=1.380649*(1e-16) #Constante de Boltzmann en unidades cgs
-c=2.99792458*(1e10) #velocidad de la luz en unidades cgs
+#h=6.6261 #Constante de Planck en unidades cgs
+#K=1.380649 #Constante de Boltzmann en unidades cgs
+#c=2.99792458 #velocidad de la luz en unidades cgs
 f(x)=(2*h*(c**2))/((x**5)*(exp((h*c)/(x*K*T))-1))
-fit f(x) "data-planckiana.txt" using 1:2 via T
+fit f(x) "data-planckiana.txt" using 1:3 via h, K, c, T
 plot "data-planckiana.txt" using 1:2 , f(x) 
