@@ -1,26 +1,35 @@
 import numpy as np
+import matplotlib as mpl
 import matplotlib.pyplot as plt
+import matplotlib.cm as cm
 from scipy.optimize import curve_fit
-#from numpy import loadtxt
+from numpy import loadtxt
+
 
 #Define x and y values from the data
-data = loadtxt("dataplanckmks.txt").array
+data = loadtxt("dataplanckmks.txt")
 xData = data[:, 0]
 yData = data[:, 1]
 
+# ---------------------------------------------------------------------
+# ---------------------------------------------------------------------
 
 
-#Fitting function
+#Define function
 
 def planckfunction(x, T):
 
     h = 6.626070150*10**(-34) #Js
     c = 299792458 #m/s
     k = 1.3806488*10**(-23) #J/K
-    return (2*h*c**2)/((x**5)*(np.exp((h*c)/(x*k*T))-1)
+    return (2*h*c**2)/((x**5)*(np.exp((h*c)/(x*k*T))-1))
 
-#Plot experimental data points
-plt.plot(xData, yData, '.', label='experimental-data')
+# ---------------------------------------------------------------------
+# ---------------------------------------------------------------------
+
+
+                       
+plt.plot(xData, yData, 'bo', label='experimental-data')
 
 #Perform the curve-fit
 
@@ -31,8 +40,8 @@ print(popt)
 
 #X values for the fitted function
 
-xFit = np.arrange(0.0, 5.0, 0.01
-                  )
+xFit = np.arange(0.0, 0.1, 0.001)
+
 #Plot the fitted function
 plt.plot(xFit, planckfunction(xFit, *popt), 'r', label='fit params')
 
