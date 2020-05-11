@@ -7,7 +7,7 @@ from numpy import loadtxt
 
 
 #Define x and y values from the data
-data = loadtxt("dataplanckmks.txt")
+data = loadtxt("data-planckiana.txt")
 xData = data[:, 0]
 yData = data[:, 1]
 
@@ -40,7 +40,7 @@ print(popt)
 
 #X values for the fitted function
 
-xFit = np.arange(0.0, 0.1, 0.001)
+xFit = np.arange(0.0, 0.000006, 0.001)
 
 #Plot the fitted function
 plt.plot(xFit, planckfunction(xFit, *popt), 'r', label='fit params')
