@@ -17,11 +17,11 @@ yData = data[:, 1]
 
 #Define function
 
-def planckfunction(x, T):
+def planckfunction(x, h, c, k, T):
 
-    h = 6.626070150*10**(-34) #Js
-    c = 299792458 #m/s
-    k = 1.3806488*10**(-23) #J/K
+    #h = 6.626070150 #e-34Js
+    #c = 2.99792458 #e10m/s
+    #k = 1.3806488 #e-23J/K
     return (2*h*c**2)/((x**5)*(np.exp((h*c)/(x*k*T))-1))
 
 # ---------------------------------------------------------------------
@@ -33,14 +33,14 @@ plt.plot(xData, yData, 'bo', label='experimental-data')
 
 #Perform the curve-fit
 
-initialGuess= 5000
+#initialGuess= 5000
 
-popt, pcov = curve_fit(planckfunction, xData, yData, initialGuess)
+popt, pcov = curve_fit(planckfunction, xData, yData)
 print(popt)
 
 #X values for the fitted function
 
-xFit = np.arange(0.0, 0.000006, 0.001)
+xFit = np.arange(0.0, 6.0, 0.1)
 
 #Plot the fitted function
 plt.plot(xFit, planckfunction(xFit, *popt), 'r', label='fit params')
