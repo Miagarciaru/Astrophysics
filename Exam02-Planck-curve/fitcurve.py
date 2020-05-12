@@ -29,7 +29,7 @@ def planckfunction(x, T):
 
 
                        
-plt.plot(xData, yData, 'bo', label='experimental-data')
+plt.plot(xData, yData, '.', label='experimental-data')
 
 #Perform the curve-fit
 
@@ -43,8 +43,11 @@ print(popt)
 xFit = np.arange(0.0, 6.0, 0.1)
 
 #Plot the fitted function
+
+plt.grid()
+plt.title('Fitted Planck curve')
+plt.xlabel('Wavelength ($\mu$m)',fontsize=12)
+plt.ylabel('Astrophysical Flux at the Solar surface (erg/(cm² s $\mu$m ster))',fontsize=12)
 plt.plot(xFit, planckfunction(xFit, *popt)/10, 'r', label='fit params')
-plt.xlabel('x')
-plt.ylabel('y')
 plt.legend()
 plt.show()
