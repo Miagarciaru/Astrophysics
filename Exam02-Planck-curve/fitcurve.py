@@ -28,26 +28,25 @@ def planckfunction(x, T):
 # ---------------------------------------------------------------------
 
 
-                       
-plt.plot(xData, yData, '.', label='experimental-data')
+plt.figure(figsize=(6,8))                       
+plt.plot(xData, yData, '.', label='Experimental-data')
 
 #Perform the curve-fit
 
-#initialGuess= 5000
 
 popt, pcov = curve_fit(planckfunction, xData, yData*10)
 print(popt)
 
 #X values for the fitted function
 
-xFit = np.arange(0.0, 6.0, 0.1)
+xFit = np.arange(0.0, 5.2, 0.1)
 
 #Plot the fitted function
 
 plt.grid()
-plt.title('Fitted Planck curve')
-plt.xlabel('Wavelength ($\mu$m)',fontsize=12)
+plt.title('Spectrum from Solar surface')
+plt.xlabel('Wavelength $\lambda$ ($\mu$m)',fontsize=12)
 plt.ylabel('Astrophysical Flux at the Solar surface (erg/(cm² s $\mu$m ster))',fontsize=12)
-plt.plot(xFit, planckfunction(xFit, *popt)/10, 'r', label='fit params')
+plt.plot(xFit, planckfunction(xFit, *popt)/10, 'r', label='Fitted curve')
 plt.legend()
 plt.show()
